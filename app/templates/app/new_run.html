@@ -4,26 +4,26 @@
 
 {% block content %}
     <main>
-        <div class="container shadow-md p-5 form-layout">
+        <div class="shadow-md p-5 form-layout">
             <h3>Create a new run</h3>
             <hr>
             <form method="POST" autocomplete="off" action="">
                 {% csrf_token %}
                 <div class="row">
                     <h5>Contact Information</h5>
-                    <div class="col-sm-6">
+                    <div class="col-6">
                         <label>Name</label>
                         <input type="text" class="form-control" value="{{ run.requester_name.value }}" disabled>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-6">
                         <label>Department</label>
                         <input type="text" class="form-control" value="{{ run.requester_department.value }}" disabled>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-6">
                         <label>Email</label>
                         <input type="text" class="form-control" value="{{ run.requester_email.value }}" disabled>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-6">
                         <label>Phone</label>
                         <input type="text" class="form-control" value="{{ run.requester_phone.value }}" disabled>
                     </div>
@@ -31,27 +31,27 @@
                 <br>
                 <div class="row">
                     <h5>Pick Up Information</h5>
-                    <div class="col-sm-12">
+                    <div class="col-12">
                         <label>Pick Up From</label>
                         <input type="text" class="form-control" value="{{ run.requester_name.value }}" >
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-12">
                         <label>Address 1</label>
                         <input type="text" class="form-control" value="{{ run.requester_department.value }}" >
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-12">
                         <label>Address 2</label>
                         <input type="text" class="form-control" value="{{ run.requester_email.value }}" >
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-7">
                         <label>City</label>
                         <input type="text" class="form-control" value="{{ run.requester_phone.value }}" >
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-2">
                         <label>State</label>
                         <input type="text" class="form-control" value="{{ run.requester_phone.value }}" >
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-3">
                         <label>Zip</label>
                         <input type="text" class="form-control" value="{{ run.requester_phone.value }}" >
                     </div>
@@ -59,27 +59,27 @@
                 <br>
                 <div class="row">
                     <h5>Drop Off Information</h5>
-                    <div class="col-sm-12">
+                    <div class="col-12">
                         <label>Pick Up From</label>
                         <input type="text" class="form-control" value="{{ run.requester_name.value }}" >
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-12">
                         <label>Address 1</label>
                         <input type="text" class="form-control" value="{{ run.requester_department.value }}" >
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-12">
                         <label>Address 2</label>
                         <input type="text" class="form-control" value="{{ run.requester_email.value }}" >
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-7">
                         <label>City</label>
                         <input type="text" class="form-control" value="{{ run.requester_phone.value }}" >
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-2">
                         <label>State</label>
                         <input type="text" class="form-control" value="{{ run.requester_phone.value }}" >
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-3">
                         <label>Zip</label>
                         <input type="text" class="form-control" value="{{ run.requester_phone.value }}" >
                     </div>
