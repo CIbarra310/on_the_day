@@ -4,6 +4,21 @@
     <main>
         <h5> Welcome, {{user}} </h5>
         <hr>
+        <div class="row">
+            <div class="card border-primary col-sm-6">
+                <div class="card-header">Active Runs</div>
+                <div class="card-body">
+                    <p class="card-text">6</p>
+                </div>
+            </div>
+            <div class="card border-primary col-sm-6">
+                <div class="card-header">Total Runs</div>
+                <div class="card-body">
+                    <p class="card-text">6</p>
+                </div>
+            </div>
+        </div>
+        <br>
         <a class="btn btn-outline-primary btn-sm" href="{% url '' %}">Request New Run</a>
         <hr>
         <table class="table table-hover table-bordered">
