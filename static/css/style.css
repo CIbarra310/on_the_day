@@ -1,6 +1,6 @@
 .form-layout {
     border-radius: 15px;
-    width: 700px;
+    max-width: 500px;
 }
 
 .message-text{
@@ -8,5 +8,12 @@
 }
 
 .dash-p {
-    font-size: 30px !important; 
+    padding: 0;
+    margin: 0;
+    font-size: 60px; 
+}
+
+.card-header{
+    padding: 0;
+    margin: 0;
 }
