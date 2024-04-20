@@ -1,0 +1,55 @@
+{% extends 'app/layout.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <main>
+        <div class="container shadow-md p-5 form-layout">
+            <h3>Create your account</h3>
+            <hr>
+            <form method="POST" autocomplete="off" action="">
+                {% csrf_token %}
+                <br>
+                <div class="row">
+                    <h5>Login Credentials</h5>
+                    <div class="col-md-12">
+                        {{ form.email|as_crispy_field }}
+                    </div>
+                    <div class="col-md-12">
+                        {{ form.password1|as_crispy_field }}
+                    </div>
+                    <div class="col-md-12">
+                        {{ form.password2|as_crispy_field }}
+                    </div>
+                    <br>
+                    <h5 class="pt-3">User Information</h5>
+                    <div class="col-md-6">
+                        {{ form.first_name|as_crispy_field }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.last_name|as_crispy_field }}
+                    </div>
+                    <div class="col-md-12">
+                        {{ form.phone_number|as_crispy_field }}
+                    </div>
+                    <h5 class="pt-3">Production Information</h5>
+                    <div class="col-md-12">
+                        {{ form.production_title|as_crispy_field }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.department|as_crispy_field }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.job_title|as_crispy_field }}
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary w-100 p-2 btn-block">Register</button>
+            </form>
+            <br>
+            <div class="text-center">
+                <p>Already have an account? <br><a type="button" href="{% url 'login' %}">Login here</a></p>
+            </div>
+        </div>
+    </main>
+{% endblock %}

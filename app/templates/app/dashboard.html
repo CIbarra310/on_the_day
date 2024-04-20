@@ -1,0 +1,35 @@
+{% extends 'app/layout.html' %}
+
+{% block content %}
+    <main>
+        <h5> Welcome, {{user}} </h5>
+        <hr>
+        <a class="btn btn-outline-primary btn-sm" href="{% url '' %}">Request New Run</a>
+        <hr>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Pick Up Date</th>
+                    <th scope="col">Requester</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for run in runs %}
+                    <tr>
+                        <td scope="row">{{run.id}}</td>
+                        <td scope="row">{{run.run_date}}</td>
+                        <td scope="row">{{run.requester_name}}</td>
+                        <td scope="row">{{run.requester_department}}</td>
+                        <td scope="row">
+                            <a href="{% url 'view-run' run.id %}">View</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+{% endblock %}

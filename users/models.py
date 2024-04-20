@@ -5,6 +5,8 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+from production.models import Department
+
 
 class CustomAccountManager(BaseUserManager):
     def create_superuser(self, email, user_name, first_name, password, **other_fields):

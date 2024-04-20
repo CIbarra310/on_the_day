@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 class Production(models.Model):
+    create_date = models.DateField(auto_now_add=True)
     production_title = models.CharField(max_length=150, null=True)
     production_studio = models.CharField(max_length=150, null=True)
     production_email = models.EmailField(_('email address'), null=True)
@@ -12,6 +13,7 @@ class Production(models.Model):
     coordinator_email = models.EmailField(_('email address'), null=True)
     captain_name = models.CharField(max_length=150, null=True)
     captain_email = models.EmailField(_('email address'), null=True)
+    production_notes = models.TextField(max_length=2000, null=True)
     is_active = models.BooleanField(default=True)
 
 
@@ -19,6 +21,7 @@ class Production(models.Model):
         return self.production_title
 
 class Vendor(models.Model):
+    create_date = models.DateField(auto_now_add=True)
     vendor_name = models.CharField(max_length=100)
     vendor_phone = models.CharField(max_length=15)
     vendor_address_1 = models.CharField(max_length=100)
@@ -42,6 +45,19 @@ class Location(models.Model):
 
     def __str__(self):
         return self.location_name
+    
+class Department(models.Model):
+    department_title = models.CharField(max_length=100, null=True)
+
+    def __str__(self):
+        return self.department_title
+
+class JobTitle(models.Model):
+    department_title = models.ForeignKey(Department, on_delete=models.CASCADE, default='')
+    job_title = models.CharField(max_length=100, null=True)
+
+    def __str__(self):
+        return f"{self.job_title}"
 
 class RunRequest(models.Model):
     production_title = models.CharField(max_length=150, null=True)
@@ -74,8 +90,8 @@ class RunRequest(models.Model):
 
     #Run Details
     truck_size = models.CharField(max_length=50, null=True)
-    run_details = models.CharField(max_length=500)
-    assigned_driver = models.CharField(max_length=100)
+    run_details = models.TextField(max_length=500)
+    assigned_driver = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return "Run #" + str(self.id) + " - " + self.requester_department
