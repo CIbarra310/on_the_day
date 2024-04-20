@@ -1,6 +1,6 @@
 .form-layout {
     border-radius: 15px;
-    width: 600px;
+    width: 700px;
 }
 
 .message-text{
@@ -8,5 +8,6 @@
 }
 
 .dash-tile{
-    width: 90%;
+    width: 18rem;
+    flex: 1;
 }
