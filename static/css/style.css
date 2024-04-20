@@ -13,6 +13,11 @@
     font-size: 60px; 
 }
 
+.card-text {
+    padding: 0;
+    margin: 0;
+}
+
 .card-header{
     padding: 0;
     margin: 0;

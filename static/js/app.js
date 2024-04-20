@@ -2,7 +2,10 @@
 var messageTimeout = document.getElementById("message-timer");
 
 function hideMessage() {
-    messageTimeout.style.display = "none";
+    if (messageTimeout) {
+        // Only access the style property if messageTimeout is not null
+        messageTimeout.style.display = "none";
+    }
 }
 
 // Call hideMessage after 2 seconds (2000 milliseconds)
