@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import auth
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-from production.models import JobTitle
+from production.models import JobTitle, RunRequest
 from users.models import NewUser
 
 
@@ -55,7 +55,14 @@ def logout(request):
 # - Dashboard
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'app/dashboard.html')
+    # Fetch RunRequest data model
+    runs = RunRequest.objects.all()
+
+    # Pass the object to the template context
+    context = {
+        'runs': runs
+    }
+    return render(request, 'app/dashboard.html', context=context)
 
 # - Create Run
 @login_required(login_url='login')
