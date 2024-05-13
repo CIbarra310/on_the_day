@@ -1,0 +1,103 @@
+{% extends 'app/layout.html' %}
+
+{% block content %}
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-sm btn-secondary">Back</a>
+    <div class="container shadow-md col-12 col-md-6 col-lg-6 col-xl-4">
+        <h1>Run {{ run_request.id }}</h1>
+        <div class="row" >
+            <h5>Requested By</h5>
+            <div class="col-6">
+                <label>Name</label>
+                <input type="text" class="form-control" value="{{ run_request.requester_name }}" disabled>
+            </div>
+            <div class="col-6">
+                <label>Department</label>
+                <input type="text" class="form-control" value="{{ run_request.requester_department }}" disabled>
+            </div>
+            <div class="col-6">
+                <label>Email</label>
+                <input type="text" class="form-control" value="{{ run_request.requester_email }}" disabled>
+            </div>
+            <div class="col-6">
+                <label>Phone</label>
+                <input type="text" class="form-control" value="{{ run_request.requester_phone }}" disabled>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <h5>Pick Up Information</h5>
+            <div class="col-12">
+                <label>Pick Up From</label>
+                <input type="text" class="form-control" value="{{ run_request.pickup_name }}">
+            </div>
+            <div class="col-12">
+                <label>Address 1</label>
+                <input type="text" class="form-control" value="{{ run_request.pickup_address_1 }}">
+            </div>
+            <div class="col-12">
+                <label>Address 2</label>
+                <input type="text" class="form-control" value="{{ run_request.pickup_address_2 }}">
+            </div>
+            <div class="col-5">
+                <label>City</label>
+                <input type="text" class="form-control" value="{{ run_request.pickup_city }}">
+            </div>
+            <div class="col-3">
+                <label>State</label>
+                <input type="text" class="form-control" value="{{ run_request.pickup_state }}">
+            </div>
+            <div class="col-4">
+                <label>Zip</label>
+                <input type="text" class="form-control" value="{{ run_request.pickup_zip }}">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <h5>Drop Off Information</h5>
+            <div class="col-12">
+                <label>Pick Up From</label>
+                <input type="text" class="form-control" value="{{ run_request.dropoff_name }}">
+            </div>
+            <div class="col-12">
+                <label>Address 1</label>
+                <input type="text" class="form-control" value="{{ run_request.dropoff_address_1 }}">
+            </div>
+            <div class="col-12">
+                <label>Address 2</label>
+                <input type="text" class="form-control" value="{{ run_request.dropoff_address_2 }}">
+            </div>
+            <div class="col-5">
+                <label>City</label>
+                <input type="text" class="form-control" value="{{ run_request.dropoff_city }}">
+            </div>
+            <div class="col-3">
+                <label>State</label>
+                <input type="text" class="form-control" value="{{ run_request.dropoff_state }}">
+            </div>
+            <div class="col-4">
+                <label>Zip</label>
+                <input type="text" class="form-control" value="{{ run_request.dropoff_zip }}">
+            </div>
+        </div>           
+        <br>
+        <div class="row">
+            <h5>Run Information</h5>
+            <div class="col-6 mb-3">
+                <label>P.O. #</label>
+                <input type="text" class="form-control" value="{{ run_request.purchase_order }}">
+            </div>
+            <div class="col-6 mb-3">
+                <label>Vendor Order #</label>
+                <input type="text" class="form-control" value="{{ run_request.vendor_invoice }}">
+            </div>
+            <div class="col-12 mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Run Details</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="{{ run_request.run_details }}"></textarea>
+                </div>
+        </div>
+        <div class="col-12 mb-3">
+            <label for="formFileSm" class="form-label">Supporting Documents</label>
+            <input class="form-control form-control-sm" id="formFileSm" type="file">
+        </div>
+    </div>
+{% endblock %}

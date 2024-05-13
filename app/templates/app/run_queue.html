@@ -1,0 +1,30 @@
+{% extends 'app/layout.html' %}
+
+{% block content %}
+    <main>
+        <h1>Run Queue</h1>
+        <br>
+        <div class="p-1">
+            {% for run_request in run_requests %}
+                {% ifchanged run_request.run_date %}
+                    <h4>{{ run_request.run_date }}</h4>
+                {% endifchanged %}
+                <div class="row">
+                    <div class="col-12">
+                        <p>Run #{{ run_request.id }} to {{ run_request.pickup_name }} from {{ run_request.requester_department }}</p>
+                    </div>
+                    <div class="col-4">
+                        <a href="" class="btn btn-sm btn-success d-flex justify-content-center">Complete</a>
+                    </div>
+                    <div class="col-4">
+                        <a href="" class="btn btn-sm btn-secondary d-flex justify-content-center">View/Edit</a>
+                    </div>
+                    <div class="col-4">
+                        <a href="" class="btn btn-sm btn-danger d-flex justify-content-center">Cancel</a>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}

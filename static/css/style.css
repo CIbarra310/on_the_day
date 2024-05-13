@@ -22,3 +22,40 @@
     padding: 0;
     margin: 0;
 }
+
+.status-cell {
+    width: 100px;
+    text-align: center;
+}
+.status-cell .status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+.status-cell .status.open {
+    background-color: blue;
+    color: white;
+}
+.status-cell .status.in-progress {
+    background-color: yellow;
+    color: black;
+}
+.status-cell .status.complete {
+    background-color: green;
+    color: white;
+}
+.status-cell .status.cancelled {
+    background-color: red;
+    color: white;
+}
+
+.crud-cell {
+    justify-content: right;
+}
+
+@media (max-width: 767px) {
+    .hidden-mobile {
+      display: none;
+    }
+  }

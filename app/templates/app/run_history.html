@@ -1,0 +1,48 @@
+{% extends 'app/layout.html' %}
+
+{% block content %}
+    <main>
+        <h3> Welcome, {{user}} </h3>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="row" class="hidden-mobile">Requester</th>
+                    <th scope="row">Department</th>
+                    <th scope="col" class="hidden-mobile">Pick Up</th>
+                    <th scope="col" class="hidden-mobile">Drop Off</th>
+                    <th scope="col" class="hidden-mobile">Run Status</th>
+                    <th scope="col" class="hidden-mobile">Assigned Driver</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for run in runs %}
+                    <tr>
+                        <td scope="row">{{run.id}}</td>
+                        <td scope="row">{{run.run_date}}</td>
+                        <td scope="row" class="hidden-mobile">{{run.requester_name}}</td>
+                        <td scope="row">{{run.requester_department}}</td>
+                        <td scope="row" class="hidden-mobile">
+                            <strong>{{run.pickup_name}}</strong><br>
+                            <a href="">{{run.pickup_address_1}} {{run.pickup_address_2}} {{run.pickup_city}}, {{run.pickup_state}} {{run.pickup_zip}}</a>
+                        </td>
+                        <td scope="row" class="hidden-mobile">
+                            <strong>{{run.dropoff_name}}</strong><br>
+                            <a href="">{{run.dropoff_address_1}} {{run.dropoff_address_2}} {{run.dropoff_city}}, {{run.dropoff_state}} {{run.dropoff_zip}}</a>
+                        </td>
+                        <td scope="row" class="hidden-mobile">{{run.run_status}}</td>
+                        <td scope="row" class="hidden-mobile">{{run.assigned_driver}}</td>
+                        <td scope="row">
+                            <a href="" class="btn btn-sm btn-success">C</a>
+                            <a href="{% url 'view_run' run_request_id=run.id %}" class="btn btn-sm btn-secondary">E</a>
+                            <a href="" class="btn btn-sm btn-danger">X</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+{% endblock %}

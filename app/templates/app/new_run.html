@@ -9,7 +9,7 @@
             <hr>
             <form method="POST" autocomplete="off" action="">
                 {% csrf_token %}
-                <div class="row">
+                <div class="row" hidden>
                     <h5>Contact Information</h5>
                     <div class="col-6">
                         <label>Name</label>
@@ -29,8 +29,8 @@
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <h5>Pick Up Information</h5>
+                <div class="row" id="pickup">
+                    <h5>Where are we going?</h5>
                     <div class="col-12">
                         <label>Pick Up From</label>
                         <input type="text" class="form-control" value="" placeholder="Keslow Camera" >
@@ -57,8 +57,8 @@
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <h5>Drop Off Information</h5>
+                <div class="row" id="dropoff">
+                    <h5>Where are we taking the item(s)?</h5>
                     <div class="col-12">
                         <label>Drop Off</label>
                         <input type="text" class="form-control" value="" placeholder="Sony Pictures Studios">
@@ -86,7 +86,7 @@
                 </div>           
                 <br>
                 <div class="row">
-                    <h5>Run Information</h5>
+                    <h5>What are we getting?</h5>
                     <div class="col-6 mb-3">
                         <label>P.O. #</label>
                         <input type="text" class="form-control" value="" placeholder="1234">

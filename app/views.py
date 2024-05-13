@@ -3,11 +3,12 @@ from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import auth
+from django.db.models.functions import Lower
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from production.models import JobTitle, RunRequest
 from users.models import NewUser
-
+import json
 
 # - Home Page
 def home(request):
@@ -95,3 +96,25 @@ def new_run(request):
 
     context = {'run': run}
     return render(request, 'app/new_run.html', context=context)
+
+@login_required(login_url='login')
+def run_queue(request):
+     # Fetch sorted RunRequest queryset
+    run_requests = RunRequest.objects.annotate(lower_status=Lower('run_status')).exclude(lower_status__in=['complete', 'cancelled']).order_by('run_date')
+    return render(request, 'app/run_queue.html', {'run_requests': run_requests})
+
+@login_required(login_url='login')
+def run_history(request):
+    # Fetch RunRequest data model
+    runs = RunRequest.objects.all()
+
+    # Pass the object to the template context
+    context = {
+        'runs': runs
+    }
+    return render(request, 'app/run_history.html', context=context)
+
+@login_required(login_url='login')
+def view_run(request, run_request_id):
+    run_request = get_object_or_404(RunRequest, id=run_request_id)
+    return render(request, 'app/run.html', {'run_request': run_request})

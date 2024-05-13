@@ -89,6 +89,9 @@ class RunRequest(models.Model):
     dropoff_zip = models.CharField(max_length=10)
 
     #Run Details
+    purchase_order = models.CharField(max_length=20, null=True)
+    vendor_invoice  = models.CharField(max_length=20, null=True)
+    run_status = models.CharField(max_length=20, null=True)
     truck_size = models.CharField(max_length=50, null=True)
     run_details = models.TextField(max_length=500)
     assigned_driver = models.CharField(max_length=100, null=True)
